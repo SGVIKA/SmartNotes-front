@@ -46,7 +46,7 @@ strong{
 }
 
 .intro_block:nth-child(1) .intro_img{
-background-image: url(/public/img/intro_page/img1.jpg);
+background-image: url(../../public/img/intro_page/img1.jpg);
 }
 
 .intro_block:nth-child(1) span{
@@ -56,17 +56,17 @@ background-image: url(/public/img/intro_page/img1.jpg);
 }
 
 .intro_block:nth-child(2) .intro_img{
-background-image: url(/public/img/intro_page/photo1.jpg);
+background-image: url(../../public/img/intro_page/photo1.jpg);
 }
 
 .intro_block:nth-child(3) .intro_img{
-background-image: url(/public/img/intro_page/photo2.jpg);
+background-image: url(../../public/img/intro_page/photo2.jpg);
 }
 
 .login_block{
     display: flex;
     justify-content: flex-end;
-    background-image: url(/public/img/intro_page/login_block_img.jpg);
+    background-image: url(../../public/img/intro_page/login_block_img.jpg);
     background-color: var(--background-color);
     background-repeat: repeat;
     background-position: center;
