@@ -1,0 +1,71 @@
+@font-face {
+  font-family: var(--senibold-font);
+  src: url("/public/fonts/Playfair\ Display/PlayfairDisplay-Regular.woff2")
+      format("woff2"),
+    url("/public/fonts/Playfair\ Display/PlayfairDisplay-Regular.woff")
+      format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display SemiBold";
+  src: url("/public/fonts/Playfair\ Display/PlayfairDisplay-SemiBold.woff2")
+      format("woff2"),
+    url("/public/fonts/Playfair\ Display/PlayfairDisplay-SemiBold.woff")
+      format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background-color: #ccb793;
+  --accent-btn-color: #40492e;
+  --accent-btn-text-color: #fbefd9;
+  --accent-text-color: #955236;
+  --transparent-background-color: rgba(204, 183, 147, 0.9);
+  --senibold-font: "Playfair Display SemiBold";
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1rem;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--senibold-font);
+  overflow-x: hidden;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+input:focus {
+  border: none;
+  outline: none;
+}
+
+.accent_btn {
+  background-color: var(--accent-btn-color);
+  padding: 16px;
+  font-family: var(--senibold-font);
+  font-size: 1.25rem;
+  color: var(--accent-btn-text-color);
+}
+
+main,
+header {
+  padding-left: 50px;
+  padding-right: 50px;
+}
