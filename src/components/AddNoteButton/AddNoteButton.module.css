@@ -1,0 +1,24 @@
+.add_note_button {
+  position: absolute;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.add_note_button.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  
+  align-self: flex-start; /* позволит кнопке занять ширину по содержимому */
+  display: inline-block;
+
+  
+  margin-top: 30px;
+  padding: 10px 30px;
+  border: none;
+  background-color: var(--accent-btn-color);
+  color: var(--accent-btn-text-color);
+  font-family: var(--senibold-font);
+  font-size: 1.25rem;
+}

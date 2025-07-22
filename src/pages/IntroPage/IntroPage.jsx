@@ -1,4 +1,4 @@
-import Header from "/src/components/Header/Header.jsx";
+import Header from "../../components/Header/Header";
 // import Footer from "/src/components/Footer/Footer.jsx";
 // import LoginRef from "../../components/LoginRef/LoginRef";
 import PointListWithTitles from "../../components/PointListWithTitles/PointListWithTitles";

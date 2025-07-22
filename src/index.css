@@ -1,8 +1,8 @@
 @font-face {
-  font-family: var(--senibold-font);
-  src: url("../public/fonts/Playfair-Display/PlayfairDisplay-Regular.woff2")
+  font-family: "Playfair Display Regular";
+  src: url("/fonts/Playfair-Display/PlayfairDisplay-Regular.woff2")
       format("woff2"),
-    url("../public/fonts/Playfair-Display/PlayfairDisplay-Regular.woff")
+    url("/fonts/Playfair-Display/PlayfairDisplay-Regular.woff")
       format("woff");
   font-weight: 600;
   font-style: normal;
@@ -11,9 +11,9 @@
 
 @font-face {
   font-family: "Playfair Display SemiBold";
-  src: url("../public/fonts/Playfair-Display/PlayfairDisplay-SemiBold.woff2")
+  src: url("/fonts/Playfair-Display/PlayfairDisplay-SemiBold.woff2")
       format("woff2"),
-    url("../public/fonts/Playfair-Display/PlayfairDisplay-SemiBold.woff")
+    url("/fonts/Playfair-Display/PlayfairDisplay-SemiBold.woff")
       format("woff");
   font-weight: 600;
   font-style: normal;
@@ -27,6 +27,7 @@
   --accent-text-color: #955236;
   --transparent-background-color: rgba(204, 183, 147, 0.9);
   --senibold-font: "Playfair Display SemiBold";
+  --regular-font: "Playfair Display Regular";
 }
 
 *,
@@ -68,4 +69,10 @@ main,
 header {
   padding-left: 50px;
   padding-right: 50px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }

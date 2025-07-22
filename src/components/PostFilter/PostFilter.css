@@ -1,0 +1,16 @@
+.search{
+    background-color: var(--accent-btn-text-color);
+    border: none;
+    padding: 8px 16px;
+    margin-left: 20px ;
+
+    font-family: var(--regular-font);
+    max-width: 600px;
+    width: 100%;
+
+}
+
+.search::placeholder{
+    color: var(--background-color);
+    font-family: var(--regular-font);
+}

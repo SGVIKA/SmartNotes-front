@@ -27,7 +27,7 @@ export default function LoginForm() {
       ref={formRef}
       id="login-form"
       action="/apply/"
-      method="POST"
+      method="NOTE"
       className={styles.form}
       onSubmit={handleFormSubmit}
     >
