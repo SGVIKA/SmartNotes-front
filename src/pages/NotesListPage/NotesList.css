@@ -1,4 +1,15 @@
-.not-found-notes{
-    text-align: center;
-    color: var(--accent-text-color);
+.not-found-notes {
+  text-align: center;
+  color: var(--accent-text-color);
+}
+
+.modal-backdrop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 60%;
+  width: 100%;
 }

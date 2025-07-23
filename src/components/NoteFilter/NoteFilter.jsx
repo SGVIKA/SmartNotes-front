@@ -1,6 +1,6 @@
-import "./PostFilter.css"
+import "./NoteFilter.css"
 
-export default function PostFilter({filter, setFilter}) {
+export default function NoteFilter({filter, setFilter}) {
   return (
     <input
       className="search"
