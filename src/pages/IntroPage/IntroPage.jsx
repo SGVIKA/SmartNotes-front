@@ -8,16 +8,21 @@ import "/src/pages/IntroPage/IntroPage.css";
 import { benefits, steps } from "../../data";
 import { useNavigate } from "react-router-dom";
 import LoginRef from "../../components/LoginRef/LoginRef";
+import { AuthContext } from "../../context";
+import { useContext } from "react";
 
 export default function IntroPage() {
+  const { setIsAuth } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    setIsAuth(true); // меняем состояние авторизации
+    navigate("/notes"); // переходим на защищённый маршрут
+  };
   return (
     <>
       <Header>
-        {/* <LoginRef href="/intro#login-form">Войти через телеграм</LoginRef> */}
-        {/* <LoginRef href="https://t.me/SmartZametkiBot">Войти через Telegram</LoginRef> */}
-        {/* кнопку сюда */}
-        <LoginRef onClick={() => navigate('/notes')}>Войти</LoginRef>
+        <LoginRef onClick={handleLoginClick}>Войти</LoginRef>
       </Header>
       <main>
         <div className="intro_block">
