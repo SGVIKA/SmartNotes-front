@@ -6,14 +6,18 @@ import PointListWithTitles from "../../components/PointListWithTitles/PointListW
 import "/src/App.css";
 import "/src/pages/IntroPage/IntroPage.css";
 import { benefits, steps } from "../../data";
+import { useNavigate } from "react-router-dom";
+import LoginRef from "../../components/LoginRef/LoginRef";
 
 export default function IntroPage() {
+  const navigate = useNavigate();
   return (
     <>
       <Header>
         {/* <LoginRef href="/intro#login-form">Войти через телеграм</LoginRef> */}
         {/* <LoginRef href="https://t.me/SmartZametkiBot">Войти через Telegram</LoginRef> */}
         {/* кнопку сюда */}
+        <LoginRef onClick={() => navigate('/notes')}>Войти</LoginRef>
       </Header>
       <main>
         <div className="intro_block">

@@ -13,3 +13,25 @@
   max-width: 60%;
   width: 100%;
 }
+
+.page_wrapper{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page{
+  background-color: var(--accent-text-color);
+  color: var(--accent-btn-text-color);
+  margin-left: 8px;
+  padding: 8px;
+  min-width: 40px;
+  min-height: 40px;
+  text-align: center;
+}
+
+.page_current{
+  border: solid 3px var(--accent-active-text-color);
+}

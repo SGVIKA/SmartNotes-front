@@ -1,27 +1,39 @@
 import Header from "../../components/Header/Header";
 import Note from "../../components/Note/Note";
 import AddNoteForm from "../../components/AddNoteForm/AddNoteForm";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./NotesList.css";
 import NoteFilter from "../../components/NoteFilter/NoteFilter";
 import AddNoteButton from "../../components/AddNoteButton/AddNoteButton";
 import { useNotes } from "../../hooks/useNotes";
+import NoteService from "../../API/NoteService";
+import { getPageCount, getPagesArray } from "../../utils/pages";
+import { useFetching } from "../../hooks/useFetching";
+import Pagination from "../../components/pagination/Pagination";
+import { useNavigate } from "react-router-dom";
 
 export default function NotesList() {
-  const [notes, setNotes] = useState([
-    { id: 1, title: "Test title1" },
-    { id: 2, title: "Test title2" },
-    { id: 3, title: "Test title3" },
-    { id: 4, title: "Test title4" },
-    { id: 5, title: "Test title5" },
-    { id: 6, title: "Test title6" },
-    { id: 7, title: "Test title7" },
-    { id: 8, title: "Test title8" },
-  ]);
-
+  const [notes, setNotes] = useState([]);
   const [filter, setFilter] = useState({ sort: "", query: "" });
   const [modal, setModal] = useState(false);
+  const [totalPages, setTotalPages] = useState(0);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
   const sortedAndSearchedNotes = useNotes(notes, filter.sort, filter.query);
+  const navigate = useNavigate();
+
+  const [fetchNotes, isNotesLoading, noteError] = useFetching(
+    async (limit, page) => {
+      const response = await NoteService.getAll(limit, page);
+      setNotes([...notes, ...response.data]);
+      const totalCount = response.headers["x-total-count"];
+      setTotalPages(getPageCount(totalCount, limit));
+    }
+  );
+
+  useEffect(() => {
+    fetchNotes(limit, page);
+  }, [page, limit]);
 
   const createNote = (newNote) => {
     setNotes([...notes, newNote]);
@@ -30,6 +42,14 @@ export default function NotesList() {
 
   const removeNote = (note) => {
     setNotes(notes.filter((n) => n.id !== note.id));
+  };
+
+  const changePage = (page) => {
+    setPage(page);
+  };
+
+  const handleNoteClick = (noteId) => {
+    navigate(`/notes/${noteId}`); // Переход на страницу заметки
   };
 
   return (
@@ -56,8 +76,18 @@ export default function NotesList() {
         {sortedAndSearchedNotes.length !== 0 ? (
           <div className="notes_list">
             {sortedAndSearchedNotes.map((note) => (
-              <Note note={note} key={note.id} remove={removeNote} />
+              <Note
+                note={note}
+                key={note.id}
+                remove={removeNote}
+                onNoteClick={handleNoteClick}
+              />
             ))}
+            <Pagination
+              page={page}
+              changePage={changePage}
+              totalPages={totalPages}
+            />
           </div>
         ) : (
           <p className="not-found-notes">Заметки не найдены</p>
